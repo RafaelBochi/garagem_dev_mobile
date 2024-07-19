@@ -1,5 +1,5 @@
 import axios from "axios";
-
+import { globalRouter } from "./globalRouter";
 axios.defaults.baseURL = "http://localhost:19003/";
 
 axios.interceptors.request.use(
@@ -11,7 +11,16 @@ axios.interceptors.request.use(
         return config;
     },
     (error) => {
-        console.log(error)
         return Promise.reject(error);
     },
 );
+
+axios.interceptors.response.use(
+    (response) => response,
+    (error) => {
+        if (error.response.status === 403) {
+            globalRouter.router?.push("/login")
+        }
+        return Promise.reject(error);
+    }
+)

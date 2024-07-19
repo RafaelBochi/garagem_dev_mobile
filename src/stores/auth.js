@@ -1,18 +1,22 @@
 import { ref } from 'vue';
 import { defineStore } from 'pinia';
 import { PassageUser } from '@passageidentity/passage-elements/passage-user';
+import { useStorage } from '@vueuse/core';
 import AuthService from '@/services/auth';
 const authService = new AuthService();
 
 export const useAuthStore = defineStore('auth', () => {
     const user = ref({});
+    const loggedIn = useStorage("loggedIn" ,false)
 
     async function setToken(token) {
         user.value = await authService.postUserToken(token);
+        loggedIn.value = true;
     }
 
     function unsetToken() {
         user.value = {};
+        loggedIn.value = false;
     }
 
     async function getUserInfo() {
@@ -30,5 +34,5 @@ export const useAuthStore = defineStore('auth', () => {
         }
     }
 
-    return { user, setToken, unsetToken, getUserInfo };
+    return { user, loggedIn, setToken, unsetToken, getUserInfo };
 });

@@ -1,5 +1,7 @@
 <script setup>
 import { useAppStore } from '@/stores/app';
+import LoginButton from "@/components/global/login/LoginButton.vue"
+
 const appStore = useAppStore();
 
 const links = appStore.links
@@ -23,9 +25,7 @@ const links = appStore.links
           </v-list-item>
         </v-list>
 
-        <v-btn class="mx-4 px-6" variant="elevated" color="primary" to="/login">
-          Login
-        </v-btn>
+        <LoginButton/>
       </section>
     </template>
 
