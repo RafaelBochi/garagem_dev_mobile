@@ -1,10 +1,13 @@
 <script setup>
-
+import SmallHeader from "@/components/templates/small/SmallHeader.vue";
 </script>
 
 <template>
-    small
+  <SmallHeader />
+
+  <main>
+    <router-view />
+  </main>
 </template>
 
-<style scoped>
-</style>
+<style scoped></style>
