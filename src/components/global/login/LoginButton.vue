@@ -9,7 +9,7 @@ const authStore = useAuthStore();
     class="mx-4 px-6"
     variant="elevated"
     color="primary"
-    to="/login"
+    to="/auth"
     v-if="!authStore.loggedIn"
   >
     Login

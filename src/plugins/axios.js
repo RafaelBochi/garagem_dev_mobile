@@ -19,7 +19,7 @@ axios.interceptors.response.use(
     (response) => response,
     (error) => {
         if (error.response.status === 403) {
-            globalRouter.router?.push("/login")
+            globalRouter.router?.push("/auth")
         }
         return Promise.reject(error);
     }

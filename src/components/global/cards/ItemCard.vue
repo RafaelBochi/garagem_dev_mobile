@@ -1,5 +1,9 @@
 <script setup>
+import { useVehicleStore } from '@/stores/vehicles';
+
 defineProps(["item"]);
+
+const vehicleStore = useVehicleStore();
 </script>
 
 <template>
@@ -26,10 +30,10 @@ defineProps(["item"]);
 
     <v-card-actions class="w-100">
       <v-row class="d-flex justify-space-between px-2">
-          <v-btn class="w-100 px-4 border-sm" height="42px">
-            <p class="pr-2">Edit</p>
+          <v-btn class="w-100 px-4 border-sm" height="42px" @click="vehicleStore.deleteVehicle(item.id)">
+            <p class="pr-2">Deletar</p>
 
-            <v-icon> mdi-pencil</v-icon>
+            <v-icon> mdi-delete</v-icon>
           </v-btn>
       </v-row>
     </v-card-actions>

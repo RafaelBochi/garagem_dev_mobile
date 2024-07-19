@@ -16,25 +16,43 @@ export const useVehicleStore = defineStore('vehicle', () => {
         vehicle.value = data;
     }
 
+    async function addVehicle(vehicle) {
+        try {
+            await vehicleService.addVehicle(vehicle);
+            await getVehicles();
+        } catch (e) {
+            console.log(e)
+        }
+    }
+
     async function editVehicle(id, vehicle) {
         try {
             await vehicleService.editVehicle(id, vehicle);
             await getVehicles();
-        } catch(e) {
+        } catch (e) {
             console.log(e)
         }
     }
 
     async function deleteVehicle(id) {
         try {
-            await vehicleService.removeVehicle(id);
+            await vehicleService.deleteVehicle(id);
             await getVehicles();
-        } catch(e) {
+        } catch (e) {
+            console.log(e)
+        }
+    }
+
+    async function uploadImageVehicle(image) {
+        try {
+            const data = await vehicleService.uploadImageVehicle(image);
+            return data;
+        } catch (e) {
             console.log(e)
         }
     }
 
     return {
-        vehicles, vehicle, getVehicles, getVehicle, editVehicle, deleteVehicle
+        vehicles, vehicle, getVehicles, getVehicle, addVehicle, editVehicle, deleteVehicle, uploadImageVehicle
     }
 })
