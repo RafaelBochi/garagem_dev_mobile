@@ -1,6 +1,14 @@
 <script setup>
+import { onMounted } from "vue";
+import { useAuthStore } from "@/stores/auth";
 import SlideHome from "@/components/home/SlideHome.vue"
 import SlideItemsHome from "@/components/home/SlideItemsHome.vue"
+
+const authStore = useAuthStore();
+
+onMounted(async () => {
+  await authStore.getUserInfo()
+})
 </script>
 
 <template>

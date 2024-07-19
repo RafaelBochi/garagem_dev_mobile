@@ -29,7 +29,7 @@ const links = [
           </v-list-item>
         </v-list>
 
-        <v-btn class="mx-4 px-6" variant="elevated" color="primary">
+        <v-btn class="mx-4 px-6" variant="elevated" color="primary" to="/login">
           Login
         </v-btn>
       </section>
