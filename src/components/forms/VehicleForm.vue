@@ -53,80 +53,70 @@ onMounted(async () => {
   <v-container
     class="d-flex flex-column align-center justify-center pa-10 ga-4 w-75 mx-auto"
   >
-    <v-row class="w-50">
-      <v-col md="4">
-        <v-text-field
-          variant="solo-filled"
-          placeholder="Ano"
-          hide-details=""
-          v-model="vehicle.ano"
-        >
-        </v-text-field>
-      </v-col>
-      <v-col md="4">
-        <v-text-field
-          variant="solo-filled"
-          placeholder="Preco"
-          hide-details=""
-          prefix="R$"
-          v-model="vehicle.preco"
-        >
-        </v-text-field>
-      </v-col>
+    <v-row class="w-50 d-flex flex-wrap ga-2" style="min-width: 200px">
+      <v-text-field
+        variant="solo-filled"
+        placeholder="Ano"
+        hide-details=""
+        v-model="vehicle.ano"
+      >
+      </v-text-field>
 
-      <v-col md="4">
-        <v-autocomplete
-          variant="solo-filled"
-          placeholder="Modelo"
-          hide-details=""
-          :items="globalStore.models"
-          item-title="nome"
-          item-value="id"
-          v-model="vehicle.modelo"
-        >
-        </v-autocomplete>
-      </v-col>
+      <v-text-field
+        variant="solo-filled"
+        placeholder="Preco"
+        hide-details=""
+        prefix="R$"
+        v-model="vehicle.preco"
+      >
+      </v-text-field>
+
+      <v-autocomplete
+        variant="solo-filled"
+        placeholder="Modelo"
+        hide-details=""
+        :items="globalStore.models"
+        item-title="nome"
+        item-value="id"
+        v-model="vehicle.modelo"
+      >
+      </v-autocomplete>
     </v-row>
 
-    <v-row class="w-50">
-      <v-col md="4">
-        <v-autocomplete
-          variant="solo-filled"
-          placeholder="Cor"
-          hide-details=""
-          :items="globalStore.colors"
-          item-title="nome"
-          item-value="id"
-          v-model="vehicle.cor"
-        >
-        </v-autocomplete>
-      </v-col>
+    <v-row class="w-50 d-flex flex-wrap ga-2" style="min-width: 200px">
+      <v-autocomplete
+        variant="solo-filled"
+        placeholder="Cor"
+        hide-details=""
+        :items="globalStore.colors"
+        item-title="nome"
+        item-value="id"
+        v-model="vehicle.cor"
+      >
+      </v-autocomplete>
 
-      <v-col md="4">
-        <v-file-input
-          variant="solo-filled"
-          accept="image/*"
-          label="Imagem"
-          hide-details=""
-          prepend-icon=""
-          v-model="image"
-          @change="onFileChange"
-        ></v-file-input>
-      </v-col>
-      <v-col md="4">
-        <v-autocomplete
-          variant="solo-filled"
-          placeholder="Acessorios"
-          hide-details=""
-          :items="globalStore.accessories"
-          item-title="descricao"
-          item-value="id"
-          multiple
-          chips=""
-          v-model="vehicle.acessorios"
-        >
-        </v-autocomplete>
-      </v-col>
+      <v-file-input
+        variant="solo-filled"
+        accept="image/*"
+        label="Imagem"
+        hide-details=""
+        prepend-icon=""
+        v-model="image"
+        @change="onFileChange"
+      ></v-file-input>
+
+      <v-autocomplete
+        variant="solo-filled"
+        placeholder="Acessorios"
+        hide-details=""
+        :items="globalStore.accessories"
+        item-title="descricao"
+        item-value="id"
+        multiple
+        chips=""
+        v-model="vehicle.acessorios"
+      >
+      </v-autocomplete>
     </v-row>
 
     <v-row>
