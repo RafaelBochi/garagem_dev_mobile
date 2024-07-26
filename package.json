@@ -15,8 +15,10 @@
     "axios": "^1.7.2",
     "core-js": "^3.37.1",
     "roboto-fontface": "*",
+    "vite-plugin-pwa": "^0.20.1",
     "vue": "^3.4.31",
-    "vuetify": "^3.6.11"
+    "vuetify": "^3.6.11",
+    "workbox-precaching": "^7.1.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.5",
