@@ -49,6 +49,40 @@ export default defineConfig({
       },
       vueTemplate: true,
     }),
+    VitePWA({
+      registerType: 'autoUpdate',
+      includeAssets: ['favicon.ico', 'apple-touch-icon.png'],
+      manifest: {
+        name: 'Indian Store',
+        short_name: 'IdianStore',
+        description: 'Idian Store: Os melhores carros falsificados',
+        theme_color: '#ffffff',
+        icons: [
+          {
+            src: 'pwa-192x192.png',
+            sizes: '192x192',
+            type: 'image/png',
+            purpose: 'any',
+          },
+          {
+            src: 'pwa-512x512.png',
+            sizes: '512x512',
+            type: 'image/png',
+            purpose: 'maskable',
+          },
+        ],
+        id: 'com.fake-store.app',
+        orientation: 'any',
+        background_color: '#ffffff',
+        start_url: '.',
+        launch_handler: {
+          client_mode: ['navigate-existing', 'auto'],
+        },
+      },
+      devOptions: {
+        enabled: true,
+      },
+    }),
   ],
   define: { 'process.env': {} },
   resolve: {
